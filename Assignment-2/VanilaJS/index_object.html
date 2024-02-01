@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // var s = [101, "abcd", "sdfsd", false, 1.2]
+        // var superHero = {
+        //     id: 101,
+        //     name: "Tony Stark",
+        //     aka: "Iron man",
+        //     isAlive: false,
+        //     movies: ["Iron Man", "Iron Man 2", "The Avengers"],
+        //     adresss: {
+        //         location: "malibu Point",
+        //         city: "malobu",
+        //         country: "US",
+        //         geo: {
+        //             lat: 34.01,
+        //             long: 180.18
+        //         }
+        //     },
+        //     superHeroName: function(){
+        //         console.log(this.aka);
+        //     }
+        // }
+        // Object
+        // console.log(superHero.name);
+        // console.log(superHero.isAlive);
+        // console.log(superHero.movies.join(", "));
+        // for(var i=0; i<superHero.movies.length; i++){
+        //     console.log(superHero.movies[i]);
+        // }
+        // console.log(superHero.movies[1]);
+        // console.log(superHero.adresss.geo.lat);
+        // superHero.superHeroName()
+        // console.log(this);
+        
+        var superHeros = [
+            {id: 101, name: "Tony Stark", aka: "Iron Man", movies: ["Iron Man", "Iron Man 2", "The Avengers"]},
+            {id: 102, name: "Bruce Wayne", aka: "Bat Man", movies: ["The Batman", "Batman Begins", "The Dark Knight"]},
+            {id: 103, name: "Natasha Romanoff", aka: "Black Widow", movies: [ "Iron Man 2", "The Avengers", "Black Widow"]},
+            {id: 104, name: "Bruce Banner", aka: "Hulk", movies: ["Hulk", "The Incredable hulk", "The Avengers"]},
+        ]
+        
+        for(var i=0; i<superHeros.length; i++){
+            console.log(superHeros[i].id+" "+superHeros[i].name+" "+superHeros[i].aka+" "+superHeros[i].movies.join(", "));
+        }
+    </script>
+</body>
+</html>

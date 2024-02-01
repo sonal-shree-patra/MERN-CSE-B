@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading{
+            font-size: 100px;
+        }
+        .super-hero{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .super-hero th,
+        .super-hero td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+        input{
+            display: block;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">
+        <!-- <h2>Inside div</h2> -->
+        <form action="" method="post" onsubmit="add(event)">
+            <div id="formInputs">
+                <input type="text" name="num" placeholder="Enter a number">
+                <input type="text" name="num" placeholder="Enter a number">
+            </div>
+            <button type="button" onclick="addInput()">Add More</button>
+            <input type="submit" value="ADD">
+            <p id="res"></p>
+        </form>
+    </div>
+    
+    <script>
+        // document.write('<h1>Hello from JS!</h1>')
+        // var h1 = '<h1>Hello from JS 2!</h1>'
+        // document.write(h1)
+        // var x = document.createElement("h1")
+        // x.textContent = "Another H1 Tag"
+        // x.style.color="red"
+        // x.style.backgroundColor='yellow'
+        // x.className="heading"
+        // document.body.appendChild(x)
+
+        // var btn = document.createElement("button")
+        // btn.textContent="Click"
+        // btn.onclick = function(){
+        //     alert("Button is clicked")
+        // }
+        // document.getElementById("myDiv").append(btn)
+        
+        // var drinks = ["tea", "coffee", "milk", "Apple Juice"]
+        // var ul = document.createElement("ul")
+        // for(var i=0; i<drinks.length; i++){
+        //     var li = document.createElement('li')
+        //     li.textContent = drinks[i]
+        //     ul.appendChild(li)
+        // }
+        // document.getElementById("myDiv").append(ul)
+
+        // var superHeros = [
+        //     {id: 101, name: "Tony Stark", aka: "Iron Man", movies: ["Iron Man", "Iron Man 2", "The Avengers"]},
+        //     {id: 102, name: "Bruce Wayne", aka: "Bat Man", movies: ["The Batman", "Batman Begins", "The Dark Knight"]},
+        //     {id: 103, name: "Natasha Romanoff", aka: "Black Widow", movies: [ "Iron Man 2", "The Avengers", "Black Widow"]},
+        //     {id: 104, name: "Bruce Banner", aka: "Hulk", movies: ["Hulk", "The Incredable hulk", "The Avengers"]},
+        // ]
+        // var table = document.createElement("table")
+        // table.className="super-hero"
+        // var tr = document.createElement("tr")
+        // console.log(Object.keys(superHeros[0]));
+        // var keys = Object.keys(superHeros[0])
+        // for(var i=0; i<keys.length; i++){
+        //     var th = document.createElement("th")
+        //     th.textContent = keys[i]
+        //     tr.appendChild(th)
+        // }
+        // table.appendChild(tr)
+        // for(var i=0; i<superHeros.length; i++){
+        //     var tr = document.createElement("tr")
+        //     var td = document.createElement("td")
+        //     td.textContent = superHeros[i].id
+        //     tr.appendChild(td)
+        //     td = document.createElement("td")
+        //     td.textContent = superHeros[i].name
+        //     tr.appendChild(td)
+        //     td = document.createElement("td")
+        //     td.textContent = superHeros[i].aka
+        //     tr.appendChild(td)
+        //     td = document.createElement("td")
+        //     td.textContent = superHeros[i].movies.join(", ")
+        //     tr.appendChild(td)
+        //     table.appendChild(tr)
+        // }
+        // document.getElementById("myDiv").append(table)
+        
+        function addInput(){
+            var inp = document.createElement("input")
+            inp.type = "text"
+            inp.placeholder = "Enter a Number"
+            inp.name = "num"
+            document.getElementById("formInputs").appendChild(inp)
+        }
+
+        function add(e){
+            e.preventDefault()
+            var nums = document.getElementsByName("num")
+            console.log(nums);
+            var s = 0;
+            for(let i=0;i<nums.length; i++){
+                var x = parseInt(nums[i].value)
+                s+=x
+            }
+            document.getElementById("res").innerHTML = s
+        }
+    </script>
+</body>
+</html>
