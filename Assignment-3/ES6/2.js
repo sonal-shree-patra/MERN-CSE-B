@@ -155,6 +155,7 @@ class Product{
 let name = "Sam"
 let age = 20
 
-console.log(name+" is "+age+" years old");
+// console.log(name+" is "+age+" years old");
 // console.log(name+' is '+age+' year's old');
-console.log(`${name} is ${age} year's old`);
+// console.log(`${name} is ${age} year's old`);
+

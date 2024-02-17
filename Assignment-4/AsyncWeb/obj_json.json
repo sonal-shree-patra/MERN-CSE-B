@@ -1,0 +1,13 @@
+{
+    "std": {
+        "name": "Sam",
+        "age": 23,
+        "mobile": [8988888, 88888],
+        "address": {
+            "city": "BBSR",
+            "geo": {
+                "lat": 12
+            }
+        }
+    }
+}

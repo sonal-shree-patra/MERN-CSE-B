@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="users"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/users/"
+
+        async function getUserData(){
+            // fetch(url)
+            //     .then(res => res.json())
+            //     .then(jsonData => console.log(jsonData))
+            try {
+                // let res = await fetch(url)
+                // let users = await res.json()
+                let res = await axios(url)
+                // console.log(res);
+                let users = res.data
+                // console.log(users);
+                // users.forEach( user => console.log(user.name))
+                // let ul = document.createElement('ul')
+                // users.forEach( user => {
+                //     let li = document.createElement('li')
+                //     li.textContent = user.name
+                //     ul.appendChild(li)
+                // })
+                // document.getElementById("users").appendChild(ul)
+
+                let ul = `<ul>`
+                    users.forEach( user => {
+                        ul += `<li>${user.name}</li>`
+                    })
+                ul += `</ul>`
+                console.log(ul);
+                document.getElementById("users").innerHTML = ul
+            } catch (error) {
+                console.log(error);
+            }
+            
+        }
+        // getUserData()
+
+        let imgUrl = "https://jsonplaceholder.typicode.com/photos"
+        async function getImages(){
+            let res = await axios(imgUrl)
+            console.log(res.data[0]);
+            let images = res.data
+            let op =``;
+            images.forEach(image => {
+                op += `<img src="${image.url}" />`
+            })
+            console.log(op);
+            // console.log(`<img src="${res.data[0].url}" >`);
+            // document.getElementById("users").innerHTML = `<img src="${res.data[0].url}" >`
+            document.getElementById("users").innerHTML = op
+        }
+        getImages()
+    </script>
+</body>
+</html>
