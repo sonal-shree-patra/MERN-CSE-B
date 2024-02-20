@@ -1,0 +1,15 @@
+{
+  "name": "product-json-server",
+  "version": "1.0.0",
+  "description": "\"This is a dummy json server to server product details\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve-json": "json-server --watch db.json"
+  },
+  "author": "\"John Smith\"",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}

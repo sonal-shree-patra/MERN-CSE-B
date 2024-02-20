@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .products{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .product *{
+            margin: 0;
+        }
+        .product{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <nav style="padding: 10px; border-bottom: 2px solid steelblue; margin-bottom: 20px;">
+        <a href="product-add.html">Add</a>
+        <a href="product-display.html">Display</a>
+    </nav>
+
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let url = "http://localhost:3000/product"
+        async function getProducts(){
+            try {
+                let res = await axios(url)
+                let products = res.data
+                console.log(products);
+                let op = `<div class='products'>`
+                products.forEach( product => {
+                    op += `
+                        <div class='product'>
+                            <h3>${product.name}</h3>
+                            <p>${product.price}</p>
+                            <p>
+                                <a href="product-update.html?id=${product.id}">Update</a>
+                                <a href="#" onclick="deleteProduct('${product.id}')">Delete</a>
+                            </p>
+                        </div>
+                    `
+                })
+                op += `</div>`
+                document.getElementById('container').innerHTML = op
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getProducts()
+
+        async function deleteProduct(id){
+            let conf = confirm("Are you sure?")
+            if(!conf){
+                return
+            }
+            let deleteUrl = url+"/"+id
+            try {
+                let res = await axios.delete(deleteUrl)
+                console.log(res);
+                getProducts()
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+</html>

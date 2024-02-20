@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        h2{
+            text-align: center;
+        }
+        .form-container{
+            width: 400px;
+            padding: 20px;
+            margin: auto;
+        }
+        input{
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 8px;
+        }
+        .success{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav style="padding: 10px; border-bottom: 2px solid steelblue; margin-bottom: 20px;">
+        <a href="product-add.html">Add</a>
+        <a href="product-display.html">Display</a>
+    </nav>
+
+    <div class="container" id="container">
+        <h2>Add a New Product</h2>
+        <div class="form-container">
+            <form action="" method="post" onsubmit="addProduct(event)">
+                <input type="text" id="name" placeholder="Product Name">
+                <input type="text" id="price" placeholder="Product Price">
+                <input type="submit" value="ADD">
+            </form>
+            <p class="success" id="success"></p>
+            <p class="error" id="error"></p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let url = "http://localhost:3000/product"
+
+        async function addProduct(event){
+            event.preventDefault()
+            let name = document.getElementById("name").value
+            let price = document.getElementById("price").value
+            try {
+                let res = await axios.post(url, {"name": name, "price": price})
+                console.log(res);
+                if(res.status == 201){
+                    document.getElementById('success').innerHTML ='One Product Added'
+                    document.getElementById("name").value =""
+                    document.getElementById("price").value =""
+                } else {
+                    document.getElementById('error').innerHTML ='Something went wrong'
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+    </script>
+</body>
+</html>
