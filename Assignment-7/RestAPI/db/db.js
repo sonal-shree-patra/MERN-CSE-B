@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 async function dbConnect(){
-    DBURL="YOUR_DATABASE_URL"
+    DBURL="YOUR_DATABSE_URL"
     DBNAME="placementpal"
     try {
         await mongoose.connect(DBURL+"/"+DBNAME)
