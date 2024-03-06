@@ -71,7 +71,7 @@ app.delete("/interview/:id", (req, res)=>{
 })
 
 async function dbConnect(){
-    DBURL="mongodb+srv://etlab:etlab@cluster0.pielryo.mongodb.net"
+    DBURL="YOUR_DATABSE_URL"
     DBNAME="placementpal"
     try {
         await mongoose.connect(DBURL+"/"+DBNAME)
