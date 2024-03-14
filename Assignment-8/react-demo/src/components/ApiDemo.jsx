@@ -15,7 +15,7 @@ const ApiDemo = () => {
   return (
     <div className="d-flex flex-wrap">
       {/* {users.map(user => <h1 key={user.id}>{user.name}</h1>)} */}
-      {users.map(user => <UserCard user={user} />)}
+      {users.map(user => <UserCard key={user.id} user={user} />)}
     </div>
   )
 }
