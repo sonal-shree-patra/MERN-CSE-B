@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Data and Sort</title>
+</head>
+<body>
+    <input type="text" id="dataInput" placeholder="Enter data">
+    <button onclick="addData()">Add to List</button>
+    <ul id="dataList"></ul>
+
+    <script>
+        const dataList = [];
+
+        function addData() {
+            const inputElement = document.getElementById("dataInput");
+            const data = inputElement.value.trim();
+
+            if (data) {
+                dataList.push(data);
+                inputElement.value = "";
+                displayData();
+            }
+        }
+
+        function displayData() {
+            const sortedData = [...dataList].sort();
+            const listElement = document.getElementById("dataList");
+            listElement.innerHTML = "";
+
+            sortedData.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                listElement.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
