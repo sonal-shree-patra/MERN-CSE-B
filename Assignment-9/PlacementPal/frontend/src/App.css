@@ -1,0 +1,12 @@
+.nav-link{
+    color: black !important;
+}
+
+.interview-card{
+    width: 250px;
+    height: 140px;
+    transition: all .3s;
+}
+.interview-card:hover{
+    scale: 1.1;
+}
