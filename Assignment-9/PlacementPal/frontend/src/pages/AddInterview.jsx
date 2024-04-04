@@ -19,7 +19,7 @@ const AddInterview = () => {
       interviewDate : interviewDateRef.current.value,
       place : placeRef.current.value,
       role : roleRef.current.value,
-      broadArea : broadAreaRef.current.value,
+      broadArea : broadAreaRef.current.value.split(","),
       isFresher : isFresherRef.current.checked,
     }
     console.log(newInterview);

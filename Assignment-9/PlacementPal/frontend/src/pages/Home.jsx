@@ -16,10 +16,11 @@ const Home = () => {
         getData()
     }, [])
 
+    if(!interviews) return
   return (
     <div className='d-flex flex-wrap'>
     {
-        interviews && interviews.map( interview => <InterviewCard key={interview._id} interview={interview} />)
+       interviews.map( interview => <InterviewCard key={interview._id} interview={interview} />)
     }
     </div>
   )
