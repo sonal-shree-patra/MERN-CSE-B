@@ -47,6 +47,28 @@ class InterviewApiService{
             return {status: false}
         }
     }
+
+    async updateInterview(id, interview){
+        try {
+            const res = await axios.put(`${this.api}/interview/${id}`, interview)
+            console.log(res.data);
+            return {data: res.data, status: true}
+        } catch (error) {
+            console.log(error);
+            return {status: false}
+        }
+    }
+
+    async deleteInterview(id){
+        try {
+            const res = await axios.delete(`${this.api}/interview/${id}`)
+            console.log(res.data);
+            return {data: res.data, status: true}
+        } catch (error) {
+            console.log(error);
+            return {status: false}
+        }
+    }
 }
 
 

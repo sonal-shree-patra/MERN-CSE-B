@@ -1,10 +1,14 @@
+const mongoose = require('mongoose')
 const QuestionModel = require('../models/question.model')
 
 const addQuestion = async(req, res) =>{
     try {
+        // req.body.interviewId = new mongoose.Types.ObjectId(req.body.interviewId)
+        // console.log(req.body);
         const question = await QuestionModel.create(req.body)
         res.status(201).json(question)
     } catch (error) {
+        console.log(error);
         res.status(400).json(error)
     }
 }
